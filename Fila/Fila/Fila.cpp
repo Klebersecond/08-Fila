@@ -85,16 +85,35 @@ void insere()
 	}
 
 	cout << "Digite o elemento: ";
-	cin >> novo->valor;
-	novo->prox = NULL;
+		cin >> novo->valor;
+		novo->prox = NULL;
 
+		if (inicio == NULL) {
+			inicio = novo;
+			fim = novo;
+		}
 
+		else {
+			fim->prox = novo;
+			fim = novo;
+		}
+
+		cout << "elemento " << novo->valor << " inserido \n";
 }
 
 void remove()
 {
+	NO* aux = inicio;
 
+	if (inicio == NULL) {
+		cout << "fila vazia! \n";
+		return;
+	}
 
-
+	else {
+		cout << "elemento " << aux->valor << " deletado \n";
+		inicio = inicio->prox;
+		free(aux);
+	}
 }
 
